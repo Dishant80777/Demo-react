@@ -4,84 +4,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {BsArrowDownSquareFill} from 'react-icons/bs';
-import Navbar from './Navbar';
+import Navbar from './Components/Navbar';
 import PopUp from './PopUp';
+import initialTableData from './Records.json'
+import {createContext} from 'react';
+import ReactSwitch from "react-switch";
 
-const initialTableData = [
-  {
-    documentName: "Document 1",
-    lastReview: "Review 1",
-    receivedOn: "10-17-2023",
-    importedOn: "10-17-2023",
-    requestStatus: "Pending",
-  },
-  {
-    documentName: "Document 2",
-    lastReview: "Review 2",
-    receivedOn: "10-17-2023",
-    importedOn: "1-27-2023",
-    requestStatus: "Completed",
-  },
-  {
-    documentName: "Document 3",
-    lastReview: "Review 3",
-    receivedOn: "10-17-2023",
-    importedOn: "6-17-2023",
-    requestStatus: "Completed",
-  },
-  {
-    documentName: "Document 4",
-    lastReview: "Review 4",
-    receivedOn: "7-01-2023",
-    importedOn: "1-05-2023",
-    requestStatus: "Pending",
-  },
-  {
-    documentName: "Document 5",
-    lastReview: "Review 5",
-    receivedOn: "1-1-2023",
-    importedOn: "1-24-2023",
-    requestStatus: "Pending",
-  },
-  {
-    documentName: "Document 6",
-    lastReview: "Review 6",
-    receivedOn: "1-17-2022",
-    importedOn: "8-7-2023",
-    requestStatus: "Completed",
-  },
-  {
-    documentName: "Document 7",
-    lastReview: "Review 7",
-    receivedOn: "7-7-2023",
-    importedOn: "10-7-2022",
-    requestStatus: "Pending",
-  },
-  {
-    documentName: "Document 8",
-    lastReview: "Review 8",
-    receivedOn: "1-17-2023",
-    importedOn: "1-1-2023",
-    requestStatus: "Pending",
-  },
-  {
-    documentName: "Document 9",
-    lastReview: "Review 9",
-    receivedOn: "10-7-2023",
-    importedOn: "10-1-2023",
-    requestStatus: "Completed",
-  },
-  {
-    documentName: "Document 10",
-    lastReview: "Review 10",
-    receivedOn: "10-17-2023",
-    importedOn: "1-7-2022",
-    requestStatus: "Pending",
-  },
-  // Add more data rows as needed
-];
+export const ThemeContext= createContext(null);
 
 function App() {
+
   const [status, setStatus] = useState("all");
   const [name, setName] = useState("all");
   const [priority, setPriority] = useState("all");
@@ -89,7 +21,11 @@ function App() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [openPopUp, setOpenPopUp] = useState(0);
+  const [theme,setTheme]= useState("dark");
 
+  const toggleTheme=()=>{
+    setTheme((curr)=>(curr==="light" ? "dark" : "light"));
+  }
   const handleSearch = (e) => {
     e.preventDefault();
     const filteredData = initialTableData.filter((item) => {
@@ -124,7 +60,8 @@ function App() {
   };
 
   return (
-<div className="App relative">
+    <ThemeContext.Provider value={{theme,toggleTheme}}>
+<div className="App" id={theme}>
   <Navbar/>
   <div className="left-navigation">
     <h2>DASHBOARD</h2>
@@ -143,6 +80,10 @@ function App() {
   </div>
   <div className="main-content">
     <h2>Request Search</h2>
+    <div className='flex justify-end gap-2 items-center'>
+    <label>Theme Change</label>
+    <ReactSwitch onChange={toggleTheme} checked={theme==="dark"}/>
+  </div>
     <div className="search-bar">
   <form>
     <div className="search-options">
@@ -236,7 +177,7 @@ function App() {
           </PopUp>
         </div>
 </div>
-
+</ThemeContext.Provider>
 
   )
 }
