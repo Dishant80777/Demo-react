@@ -1,0 +1,248 @@
+.App{
+  /* min-height: 100vh;
+  display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Left Navigation Styles */
+.left-navigation {
+  background-color: #53b3dc;
+  color: white;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  padding: 20px;
+  margin: 0;
+}
+
+.left-navigation h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.left-navigation ul {
+  list-style: none;
+  padding: 0;
+}
+
+.left-navigation li {
+  margin-bottom: 10px;
+}
+
+.left-navigation a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.left-navigation a:hover {
+  color: #61dafb; /* Change the color on hover */
+}
+
+
+
+/* Search Bar Styles */
+.search-bar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.search-bar form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-input input {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.search-options select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.search-button button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-button button:hover {
+  background-color: #005d99;
+}
+
+.search-button {
+  display: flex;
+  gap: 35px; /* Adjust the gap as needed for spacing between buttons */
+}
+
+
+/* Main Content Styles */
+.main-content {
+  margin-left: 250px; /* Adjust this margin based on your left navigation width */
+  padding: 20px;
+}
+
+/* Search Bar Styles */
+.search-bar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.search-bar form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-input input {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.search-options select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.search-button button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-button button:hover {
+  background-color: #005d99;
+}
+
+/* Table Styles */
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.data-table th, .data-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #007acc;
+  color: white;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.data-table tr:hover {
+  background-color: #ddd;
+}
+
+
+
+/* Search Bar Styles */
+.search-bar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.search-bar form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-options {
+  flex: 1;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column; /* Display labels above selects */
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+select, input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.search-button button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-button button:hover {
+  background-color: #005d99;
+}
+
+/* PopUp */
+.popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-inner{
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 640px;
+  background-color: #fff;
+}
+
+.popup-inner .close-btn{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
